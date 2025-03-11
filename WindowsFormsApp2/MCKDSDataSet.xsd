@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MCKDSDataSet" targetNamespace="http://tempuri.org/MCKDSDataSet.xsd" xmlns:mstns="http://tempuri.org/MCKDSDataSet.xsd" xmlns="http://tempuri.org/MCKDSDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MCKDSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MCKDSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MCKDS.Properties.Settings.GlobalReference.Default.MCKDSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ItemTableAdapter" GeneratorDataComponentClassName="ItemTableAdapter" Name="Item" UserDataComponentName="ItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MCKDSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Item.ItemID AS ItemId, Item.ItemName, Item.IsFried AS FriedItem, Item.OnHandQuantity AS OnHand, Item.CFriedQuantity AS CFriedQty, CASE WHEN ISNULL(Item.CFriedQuantity, 0) &lt; ISNULL(Item.OnHandQuantity, 0) 
+                         THEN ISNULL(Item.OnHandQuantity, 0) ELSE ISNULL(Item.CFriedQuantity, 0) END AS NeedtoFry, BOMItem.Unit
+FROM            Item LEFT OUTER JOIN
+                         BOM AS BOMItem ON BOMItem.FryingItem = Item.ItemID
+WHERE        (Item.IsFried = 1)
+GROUP BY Item.ItemID, Item.ItemName, Item.IsFried, Item.OnHandQuantity, Item.CFriedQuantity, BOMItem.Unit
+ORDER BY Item.ItemName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
+              <Mapping SourceColumn="ItemId" DataSetColumn="ItemId" />
+              <Mapping SourceColumn="FriedItem" DataSetColumn="FriedItem" />
+              <Mapping SourceColumn="OnHand" DataSetColumn="OnHand" />
+              <Mapping SourceColumn="NeedtoFry" DataSetColumn="NeedtoFry" />
+              <Mapping SourceColumn="CFriedQty" DataSetColumn="CFriedQty" />
+              <Mapping SourceColumn="Unit" DataSetColumn="Unit" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="MCKDSConnectionString (Settings)" DbObjectName="SELECT DISTINCT TOP (100) PERCENT Item.ItemID AS ItemId, Item.ItemCategory AS CATEGORY, Item.ItemName, Item.IsFried AS FriedItem, Item.OnHandQuantity AS OnHand, ItemForecast.FromDate AS DateFrom, ItemForecast.ProjectedQuantity AS ProjectedQty, ItemForecast.ToDate AS DateTo, ISNULL(ItemForecast.ProjectedQuantity, 0) - CASE WHEN ISNULL(Item.CFriedQuantity, 0) &lt; (ISNULL(Item.OnHandQuantity, 0)) THEN (ISNULL(Item.OnHandQuantity, 0)) ELSE ISNULL(Item.CFriedQuantity, 0) END AS NeedtoFry, Item.CFriedQuantity AS CFriedQty, (SELECT TOP (1) Unit FROM BOM WHERE (FryingItem = Item.ItemID)) AS Unit, (SELECT TOP (1) ProjectedQuantity FROM ItemForecast AS t WHERE (ItemID = ItemForecast.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS ii WHERE (ItemID = t.ItemID) AND (FromDate &lt;= GETDATE()) AND (ToDate &gt;= GETDATE()))) ORDER BY ToDate) AS ProjectedQty1, (SELECT TOP (1) FromDate FROM ItemForecast AS t WHERE (ItemID = ItemForecast.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS ii WHERE (ItemID = t.ItemID) AND (FromDate &lt;= GETDATE()) AND (ToDate &gt;= GETDATE()))) ORDER BY FromDate) AS ProjectedQty1FromDate, (SELECT TOP (1) ToDate FROM ItemForecast AS t WHERE (ItemID = ItemForecast.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS ii WHERE (ItemID = t.ItemID) AND (FromDate &lt;= GETDATE()) AND (ToDate &gt;= GETDATE()))) ORDER BY ToDate) AS ProjectedQty1ToDate, (SELECT TOP (1) ProjectedQuantity FROM ItemForecast AS t WHERE (ItemID = ItemForecast.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS i WHERE (ItemID = t.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS ii WHERE (ItemID = i.ItemID) AND (FromDate &lt;= GETDATE()) AND (ToDate &gt;= GETDATE()))) ORDER BY ToDate))) AS ProjectedQty2, (SELECT TOP (1) FromDate FROM ItemForecast AS t WHERE (ItemID = ItemForecast.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS i WHERE (ItemID = t.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS ii WHERE (ItemID = i.ItemID) AND (FromDate &lt;= GETDATE()) AND (ToDate &gt;= GETDATE()))) ORDER BY ToDate))) AS ProjectedQty2FromDate, (SELECT TOP (1) ToDate FROM ItemForecast AS t WHERE (ItemID = ItemForecast.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS i WHERE (ItemID = t.ItemID) AND (FromDate &gt;= (SELECT TOP (1) ToDate FROM ItemForecast AS ii WHERE (ItemID = i.ItemID) AND (FromDate &lt;= GETDATE()) AND (ToDate &gt;= GETDATE()))) ORDER BY ToDate))) AS ProjectedQty2Todate FROM Item LEFT OUTER JOIN ItemForecast ON Item.ItemID = ItemForecast.ItemID AND ItemForecast.FromDate &lt;= GETDATE() AND ItemForecast.ToDate &gt;= GETDATE() WHERE (Item.IsFried = 1)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Item.ItemID AS ItemId, Item.ItemName, Item.IsFried AS FriedItem, Item.OnHandQuantity AS OnHand, Item.CFriedQuantity AS CFriedQty, CASE WHEN ISNULL(Item.CFriedQuantity, 0) &lt; ISNULL(Item.OnHandQuantity, 0) 
+                         THEN ISNULL(Item.OnHandQuantity, 0) ELSE ISNULL(Item.CFriedQuantity, 0) END AS NeedtoFry, BOMItem.Unit
+FROM            Item LEFT OUTER JOIN
+                         BOM AS BOMItem ON BOMItem.FryingItem = Item.ItemID
+WHERE        (Item.IsFried = 1)
+GROUP BY Item.ItemID, Item.ItemName, Item.IsFried, Item.OnHandQuantity, Item.CFriedQuantity, BOMItem.Unit
+ORDER BY Item.ItemName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MCKDSDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="MCKDSDataSet" msprop:Generator_DataSetName="MCKDSDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Item" msprop:Generator_RowClassName="ItemRow" msprop:Generator_RowEvHandlerName="ItemRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemRowDeleted" msprop:Generator_RowDeletingName="ItemRowDeleting" msprop:Generator_RowEvArgName="ItemRowChangeEvent" msprop:Generator_TablePropName="Item" msprop:Generator_RowChangedName="ItemRowChanged" msprop:Generator_RowChangingName="ItemRowChanging" msprop:Generator_TableClassName="ItemDataTable" msprop:Generator_UserTableName="Item" msprop:Generator_TableVarName="tableItem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_UserColumnName="ItemName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemId" msprop:Generator_ColumnPropNameInRow="ItemId" msprop:Generator_ColumnPropNameInTable="ItemIdColumn" msprop:Generator_ColumnVarNameInTable="columnItemId" msprop:Generator_UserColumnName="ItemId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FriedItem" msprop:Generator_ColumnPropNameInRow="FriedItem" msprop:Generator_ColumnPropNameInTable="FriedItemColumn" msprop:Generator_ColumnVarNameInTable="columnFriedItem" msprop:Generator_UserColumnName="FriedItem" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OnHand" msprop:Generator_ColumnPropNameInRow="OnHand" msprop:Generator_ColumnPropNameInTable="OnHandColumn" msprop:Generator_ColumnVarNameInTable="columnOnHand" msprop:Generator_UserColumnName="OnHand" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NeedtoFry" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="NeedtoFry" msprop:Generator_ColumnPropNameInTable="NeedtoFryColumn" msprop:Generator_ColumnVarNameInTable="columnNeedtoFry" msprop:Generator_UserColumnName="NeedtoFry" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CFriedQty" msprop:Generator_ColumnPropNameInRow="CFriedQty" msprop:Generator_ColumnPropNameInTable="CFriedQtyColumn" msprop:Generator_ColumnVarNameInTable="columnCFriedQty" msprop:Generator_UserColumnName="CFriedQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Unit" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Item" />
+      <xs:field xpath="mstns:ItemId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RetailChannelDatabaseDataSet" targetNamespace="http://tempuri.org/RetailChannelDatabaseDataSet.xsd" xmlns:mstns="http://tempuri.org/RetailChannelDatabaseDataSet.xsd" xmlns="http://tempuri.org/RetailChannelDatabaseDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RetailChannelDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RetailChannelDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MCKDS.Properties.Settings.GlobalReference.Default.RetailChannelDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RETAILINVENTTABLETableAdapter" GeneratorDataComponentClassName="RETAILINVENTTABLETableAdapter" Name="RETAILINVENTTABLE" UserDataComponentName="RETAILINVENTTABLETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RetailChannelDatabaseConnectionString (Settings)" DbObjectName="RetailChannelDatabase.ax.RETAILINVENTTABLE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ITEMID FROM ax.RETAILINVENTTABLE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ITEMID" DataSetColumn="ITEMID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RetailChannelDatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RetailChannelDatabaseDataSet" msprop:Generator_UserDSName="RetailChannelDatabaseDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RETAILINVENTTABLE" msprop:Generator_TableClassName="RETAILINVENTTABLEDataTable" msprop:Generator_TableVarName="tableRETAILINVENTTABLE" msprop:Generator_TablePropName="RETAILINVENTTABLE" msprop:Generator_RowDeletingName="RETAILINVENTTABLERowDeleting" msprop:Generator_RowChangingName="RETAILINVENTTABLERowChanging" msprop:Generator_RowEvHandlerName="RETAILINVENTTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="RETAILINVENTTABLERowDeleted" msprop:Generator_UserTableName="RETAILINVENTTABLE" msprop:Generator_RowChangedName="RETAILINVENTTABLERowChanged" msprop:Generator_RowEvArgName="RETAILINVENTTABLERowChangeEvent" msprop:Generator_RowClassName="RETAILINVENTTABLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ITEMID" msprop:Generator_ColumnVarNameInTable="columnITEMID" msprop:Generator_ColumnPropNameInRow="ITEMID" msprop:Generator_ColumnPropNameInTable="ITEMIDColumn" msprop:Generator_UserColumnName="ITEMID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

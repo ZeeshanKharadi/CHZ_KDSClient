@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA00F389-8200-4EF3-B3B3-D24B68D897DE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MCKDS</RootNamespace>
+    <AssemblyName>MCKDS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Maison\KFC\KDS Application\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9855A10E816F1672FDAE347A7BE3863CC2AEB85E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MCKDS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MCKDS.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialSkin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=241103cd26548d29, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.2.2.1.0\lib\net461\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSetting.cs" />
+    <Compile Include="clsCOMDataReader.cs" />
+    <Compile Include="Connection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connection.Designer.cs">
+      <DependentUpon>Connection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerDisplay.Designer.cs">
+      <DependentUpon>CustomerDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerStationCtl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerStationCtl.Designer.cs">
+      <DependentUpon>CustomerStationCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dbClass.cs" />
+    <Compile Include="FryingStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FryingStation.Designer.cs">
+      <DependentUpon>FryingStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KDSStartup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KDSStartup.Designer.cs">
+      <DependentUpon>KDSStartup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSBackUpDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSBackUpDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSBackUpDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSBackUpDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSBackUpDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSBackUpDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSBackUpDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSBackUpDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSet.cs">
+      <DependentUpon>MCKDSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSetCustOrders.cs">
+      <DependentUpon>MCKDSDataSetCustOrders.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSetCustOrders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSDataSetCustOrders.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSDataSetOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSDataSetOrder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MCKDSOrderDataCompleted1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MCKDSOrderDataCompleted.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderControl.Designer.cs">
+      <DependentUpon>OrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderGridForm.Designer.cs">
+      <DependentUpon>OrderGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PizzaStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PizzaStation.Designer.cs">
+      <DependentUpon>PizzaStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetailChannelDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RetailChannelDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RetailChannelDatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RetailChannelDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmallOrderTile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SmallOrderTile.Designer.cs">
+      <DependentUpon>SmallOrderTile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlHelper.cs" />
+    <EmbeddedResource Include="Connection.resx">
+      <DependentUpon>Connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerDisplay.resx">
+      <DependentUpon>CustomerDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerStationCtl.resx">
+      <DependentUpon>CustomerStationCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FryingStation.resx">
+      <DependentUpon>FryingStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KDSStartup.resx">
+      <DependentUpon>KDSStartup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderControl.resx">
+      <DependentUpon>OrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderGridForm.resx">
+      <DependentUpon>OrderGridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PizzaStation.resx">
+      <DependentUpon>PizzaStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmallOrderTile.resx">
+      <DependentUpon>SmallOrderTile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.aa-DJ.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MCKDS.snk" />
+    <None Include="MCKDSBackUpDataSet1.xsc">
+      <DependentUpon>MCKDSBackUpDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSBackUpDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSBackUpDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSBackUpDataSet1.xss">
+      <DependentUpon>MCKDSBackUpDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSBackUpDataSet2.xsc">
+      <DependentUpon>MCKDSBackUpDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSBackUpDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSBackUpDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSBackUpDataSet2.xss">
+      <DependentUpon>MCKDSBackUpDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSBackUpDataSet3.xsc">
+      <DependentUpon>MCKDSBackUpDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSBackUpDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSBackUpDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSBackUpDataSet3.xss">
+      <DependentUpon>MCKDSBackUpDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSBackUpDataSet6.xsc">
+      <DependentUpon>MCKDSBackUpDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSBackUpDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSBackUpDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSBackUpDataSet6.xss">
+      <DependentUpon>MCKDSBackUpDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet.xsc">
+      <DependentUpon>MCKDSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSDataSet.xss">
+      <DependentUpon>MCKDSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet1.xsc">
+      <DependentUpon>MCKDSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSDataSet1.xss">
+      <DependentUpon>MCKDSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet2.xsc">
+      <DependentUpon>MCKDSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSDataSet2.xss">
+      <DependentUpon>MCKDSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet3.xsc">
+      <DependentUpon>MCKDSDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSDataSet3.xss">
+      <DependentUpon>MCKDSDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSetCustOrders.xsc">
+      <DependentUpon>MCKDSDataSetCustOrders.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSetCustOrders.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSDataSetCustOrders.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSDataSetCustOrders.xss">
+      <DependentUpon>MCKDSDataSetCustOrders.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSetOrder.xsc">
+      <DependentUpon>MCKDSDataSetOrder.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSDataSetOrder.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSDataSetOrder.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSDataSetOrder.xss">
+      <DependentUpon>MCKDSDataSetOrder.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSOrderDataCompleted.xsc">
+      <DependentUpon>MCKDSOrderDataCompleted.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDSOrderDataCompleted.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MCKDSOrderDataCompleted1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MCKDSOrderDataCompleted.xss">
+      <DependentUpon>MCKDSOrderDataCompleted.xsd</DependentUpon>
+    </None>
+    <None Include="MCKDS_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="RetailChannelDatabaseDataSet.xsc">
+      <DependentUpon>RetailChannelDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RetailChannelDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RetailChannelDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RetailChannelDatabaseDataSet.xss">
+      <DependentUpon>RetailChannelDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RetailChannelDatabaseDataSet1.xsc">
+      <DependentUpon>RetailChannelDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="RetailChannelDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RetailChannelDatabaseDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RetailChannelDatabaseDataSet1.xss">
+      <DependentUpon>RetailChannelDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Pause_1.png" />
+    <None Include="images\Pause_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panel2.BackgroundImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pPreparing.BackgroundImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cheezious.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MCKDSBackUpDataSet3" targetNamespace="http://tempuri.org/MCKDSBackUpDataSet3.xsd" xmlns:mstns="http://tempuri.org/MCKDSBackUpDataSet3.xsd" xmlns="http://tempuri.org/MCKDSBackUpDataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MCKDSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MCKDSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MCKDS.Properties.Settings.GlobalReference.Default.MCKDSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ItemTableAdapter" GeneratorDataComponentClassName="ItemTableAdapter" Name="Item" UserDataComponentName="ItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MCKDSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        itm.ItemID, itm.ItemName, itm.IsFried, itm.OnHandQuantity, itm.CFriedQuantity, CASE WHEN ISNULL(itm.CFriedQuantity, 0) &lt; ISNULL(itm.OnHandQuantity, 0) THEN ISNULL(itm.OnHandQuantity, 0) 
+                         ELSE ISNULL(itm.CFriedQuantity, 0) END AS NeedtoFry, b.Unit
+FROM            Item AS itm LEFT OUTER JOIN
+                         BOM AS b ON itm.ItemID = b.FryingItem
+WHERE        (itm.IsFried = 1)
+GROUP BY itm.ItemID, itm.ItemName, itm.IsFried, itm.OnHandQuantity, itm.CFriedQuantity, b.Unit</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
+              <Mapping SourceColumn="ItemID" DataSetColumn="ItemID" />
+              <Mapping SourceColumn="IsFried" DataSetColumn="IsFried" />
+              <Mapping SourceColumn="OnHandQuantity" DataSetColumn="OnHandQuantity" />
+              <Mapping SourceColumn="CFriedQuantity" DataSetColumn="CFriedQuantity" />
+              <Mapping SourceColumn="NeedtoFry" DataSetColumn="NeedtoFry" />
+              <Mapping SourceColumn="Unit" DataSetColumn="Unit" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="MCKDSConnectionString (Settings)" DbObjectName="MCKDSBackUp.dbo.Item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        itm.ItemID, itm.ItemName, itm.IsFried, itm.OnHandQuantity, itm.CFriedQuantity, CASE WHEN ISNULL(itm.CFriedQuantity, 0) &lt; ISNULL(itm.OnHandQuantity, 0) THEN ISNULL(itm.OnHandQuantity, 0) 
+                         ELSE ISNULL(itm.CFriedQuantity, 0) END AS NeedtoFry, b.Unit
+FROM            Item AS itm LEFT OUTER JOIN
+                         BOM AS b ON itm.ItemID = b.FryingItem
+WHERE        (itm.IsFried = 1)
+GROUP BY itm.ItemID, itm.ItemName, itm.IsFried, itm.OnHandQuantity, itm.CFriedQuantity, b.Unit</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MCKDSBackUpDataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MCKDSBackUpDataSet3" msprop:Generator_UserDSName="MCKDSBackUpDataSet3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Item" msprop:Generator_TableClassName="ItemDataTable" msprop:Generator_TableVarName="tableItem" msprop:Generator_TablePropName="Item" msprop:Generator_RowDeletingName="ItemRowDeleting" msprop:Generator_RowChangingName="ItemRowChanging" msprop:Generator_RowEvHandlerName="ItemRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemRowDeleted" msprop:Generator_UserTableName="Item" msprop:Generator_RowChangedName="ItemRowChanged" msprop:Generator_RowEvArgName="ItemRowChangeEvent" msprop:Generator_RowClassName="ItemRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_UserColumnName="ItemName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemID" msprop:Generator_ColumnVarNameInTable="columnItemID" msprop:Generator_ColumnPropNameInRow="ItemID" msprop:Generator_ColumnPropNameInTable="ItemIDColumn" msprop:Generator_UserColumnName="ItemID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IsFried" msprop:Generator_ColumnVarNameInTable="columnIsFried" msprop:Generator_ColumnPropNameInRow="IsFried" msprop:Generator_ColumnPropNameInTable="IsFriedColumn" msprop:Generator_UserColumnName="IsFried" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OnHandQuantity" msprop:Generator_ColumnVarNameInTable="columnOnHandQuantity" msprop:Generator_ColumnPropNameInRow="OnHandQuantity" msprop:Generator_ColumnPropNameInTable="OnHandQuantityColumn" msprop:Generator_UserColumnName="OnHandQuantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CFriedQuantity" msprop:Generator_ColumnVarNameInTable="columnCFriedQuantity" msprop:Generator_ColumnPropNameInRow="CFriedQuantity" msprop:Generator_ColumnPropNameInTable="CFriedQuantityColumn" msprop:Generator_UserColumnName="CFriedQuantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NeedtoFry" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNeedtoFry" msprop:Generator_ColumnPropNameInRow="NeedtoFry" msprop:Generator_ColumnPropNameInTable="NeedtoFryColumn" msprop:Generator_UserColumnName="NeedtoFry" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Item" />
+      <xs:field xpath="mstns:ItemID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RetailChannelDatabaseDataSet1" targetNamespace="http://tempuri.org/RetailChannelDatabaseDataSet1.xsd" xmlns:mstns="http://tempuri.org/RetailChannelDatabaseDataSet1.xsd" xmlns="http://tempuri.org/RetailChannelDatabaseDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="RetailChannelDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RetailChannelDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MCKDS.Properties.Settings.GlobalReference.Default.RetailChannelDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="INVENTTABLETableAdapter" GeneratorDataComponentClassName="INVENTTABLETableAdapter" Name="INVENTTABLE" UserDataComponentName="INVENTTABLETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RetailChannelDatabaseConnectionString (Settings)" DbObjectName="RetailChannelDatabase.ax.INVENTTABLE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NAMEALIAS FROM ax.INVENTTABLE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NAMEALIAS" DataSetColumn="NAMEALIAS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RetailChannelDatabaseDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RetailChannelDatabaseDataSet1" msprop:Generator_UserDSName="RetailChannelDatabaseDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="INVENTTABLE" msprop:Generator_TableClassName="INVENTTABLEDataTable" msprop:Generator_TableVarName="tableINVENTTABLE" msprop:Generator_TablePropName="INVENTTABLE" msprop:Generator_RowDeletingName="INVENTTABLERowDeleting" msprop:Generator_RowChangingName="INVENTTABLERowChanging" msprop:Generator_RowEvHandlerName="INVENTTABLERowChangeEventHandler" msprop:Generator_RowDeletedName="INVENTTABLERowDeleted" msprop:Generator_UserTableName="INVENTTABLE" msprop:Generator_RowChangedName="INVENTTABLERowChanged" msprop:Generator_RowEvArgName="INVENTTABLERowChangeEvent" msprop:Generator_RowClassName="INVENTTABLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NAMEALIAS" msprop:Generator_ColumnVarNameInTable="columnNAMEALIAS" msprop:Generator_ColumnPropNameInRow="NAMEALIAS" msprop:Generator_ColumnPropNameInTable="NAMEALIASColumn" msprop:Generator_UserColumnName="NAMEALIAS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

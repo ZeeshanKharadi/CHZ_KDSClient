@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MCKDSBackUpDataSet6" targetNamespace="http://tempuri.org/MCKDSBackUpDataSet6.xsd" xmlns:mstns="http://tempuri.org/MCKDSBackUpDataSet6.xsd" xmlns="http://tempuri.org/MCKDSBackUpDataSet6.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MCKDSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MCKDSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MCKDS.Properties.Settings.GlobalReference.Default.MCKDSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PizzaStation_TblTableAdapter" GeneratorDataComponentClassName="PizzaStation_TblTableAdapter" Name="PizzaStation_Tbl" UserDataComponentName="PizzaStation_TblTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MCKDSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        RIT.ITEMID, IT.NAMEALIAS, PS.InHand, PS.TotalMade, PS.TotalSold, PS.BatchEntry, PS.Last4BatchShowWIthQtyAnfTime, PS.Batch2, PS.Batch3
+FROM            RetailChannelDatabase.ax.INVENTTABLE AS IT INNER JOIN
+                         RetailChannelDatabase.ax.RETAILINVENTTABLE AS RIT ON IT.ITEMID = RIT.ITEMID AND RIT.ISDOUGH = 1 INNER JOIN
+                         PizzaStation_Tbl AS PS ON PS.ItemId = RIT.ITEMID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="InHand" DataSetColumn="InHand" />
+              <Mapping SourceColumn="TotalMade" DataSetColumn="TotalMade" />
+              <Mapping SourceColumn="TotalSold" DataSetColumn="TotalSold" />
+              <Mapping SourceColumn="BatchEntry" DataSetColumn="BatchEntry" />
+              <Mapping SourceColumn="Last4BatchShowWIthQtyAnfTime" DataSetColumn="Last4BatchShowWIthQtyAnfTime" />
+              <Mapping SourceColumn="ITEMID" DataSetColumn="ITEMID" />
+              <Mapping SourceColumn="NAMEALIAS" DataSetColumn="NAMEALIAS" />
+              <Mapping SourceColumn="Batch2" DataSetColumn="Batch2" />
+              <Mapping SourceColumn="Batch3" DataSetColumn="Batch3" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MCKDSBackUpDataSet6" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MCKDSBackUpDataSet6" msprop:Generator_UserDSName="MCKDSBackUpDataSet6">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PizzaStation_Tbl" msprop:Generator_TableClassName="PizzaStation_TblDataTable" msprop:Generator_TableVarName="tablePizzaStation_Tbl" msprop:Generator_RowChangedName="PizzaStation_TblRowChanged" msprop:Generator_TablePropName="PizzaStation_Tbl" msprop:Generator_RowDeletingName="PizzaStation_TblRowDeleting" msprop:Generator_RowChangingName="PizzaStation_TblRowChanging" msprop:Generator_RowEvHandlerName="PizzaStation_TblRowChangeEventHandler" msprop:Generator_RowDeletedName="PizzaStation_TblRowDeleted" msprop:Generator_RowClassName="PizzaStation_TblRow" msprop:Generator_UserTableName="PizzaStation_Tbl" msprop:Generator_RowEvArgName="PizzaStation_TblRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InHand" msprop:Generator_ColumnVarNameInTable="columnInHand" msprop:Generator_ColumnPropNameInRow="InHand" msprop:Generator_ColumnPropNameInTable="InHandColumn" msprop:Generator_UserColumnName="InHand" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalMade" msprop:Generator_ColumnVarNameInTable="columnTotalMade" msprop:Generator_ColumnPropNameInRow="TotalMade" msprop:Generator_ColumnPropNameInTable="TotalMadeColumn" msprop:Generator_UserColumnName="TotalMade" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalSold" msprop:Generator_ColumnVarNameInTable="columnTotalSold" msprop:Generator_ColumnPropNameInRow="TotalSold" msprop:Generator_ColumnPropNameInTable="TotalSoldColumn" msprop:Generator_UserColumnName="TotalSold" type="xs:int" minOccurs="0" />
+              <xs:element name="BatchEntry" msprop:Generator_ColumnVarNameInTable="columnBatchEntry" msprop:Generator_ColumnPropNameInRow="BatchEntry" msprop:Generator_ColumnPropNameInTable="BatchEntryColumn" msprop:Generator_UserColumnName="BatchEntry" type="xs:int" minOccurs="0" />
+              <xs:element name="Last4BatchShowWIthQtyAnfTime" msprop:Generator_ColumnVarNameInTable="columnLast4BatchShowWIthQtyAnfTime" msprop:Generator_ColumnPropNameInRow="Last4BatchShowWIthQtyAnfTime" msprop:Generator_ColumnPropNameInTable="Last4BatchShowWIthQtyAnfTimeColumn" msprop:Generator_UserColumnName="Last4BatchShowWIthQtyAnfTime" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEMID" msprop:Generator_ColumnVarNameInTable="columnITEMID" msprop:Generator_ColumnPropNameInRow="ITEMID" msprop:Generator_ColumnPropNameInTable="ITEMIDColumn" msprop:Generator_UserColumnName="ITEMID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAMEALIAS" msprop:Generator_ColumnVarNameInTable="columnNAMEALIAS" msprop:Generator_ColumnPropNameInRow="NAMEALIAS" msprop:Generator_ColumnPropNameInTable="NAMEALIASColumn" msprop:Generator_UserColumnName="NAMEALIAS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Batch2" msprop:Generator_ColumnVarNameInTable="columnBatch2" msprop:Generator_ColumnPropNameInRow="Batch2" msprop:Generator_ColumnPropNameInTable="Batch2Column" msprop:Generator_UserColumnName="Batch2" type="xs:string" minOccurs="0" />
+              <xs:element name="Batch3" msprop:Generator_ColumnVarNameInTable="columnBatch3" msprop:Generator_ColumnPropNameInRow="Batch3" msprop:Generator_ColumnPropNameInTable="Batch3Column" msprop:Generator_UserColumnName="Batch3" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
