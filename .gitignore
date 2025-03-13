@@ -5,3 +5,6 @@
 *.vsidx
 /.vs/wfKDSSolutions/v17/DocumentLayout.json
 /.vs/wfKDSSolutions/v17/.suo
+/.vs/wfKDSSolutions/v17/DocumentLayout.backup.json
+/WindowsFormsApp2/obj/Debug/MCKDS.csproj.FileListAbsolute.txt
+/WindowsFormsApp2/bin/Debug/app.publish/MCKDS.exe
