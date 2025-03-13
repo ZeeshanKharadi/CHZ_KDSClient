@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.vsidx
+/.vs/wfKDSSolutions/v17/DocumentLayout.json
+/.vs/wfKDSSolutions/v17/.suo
